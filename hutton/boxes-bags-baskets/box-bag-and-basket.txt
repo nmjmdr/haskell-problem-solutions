@@ -1,0 +1,26 @@
+We have three types of containers: Boxes, Bags and Baskets.
+
+Each of them can store anything, hence we can have:
+
+Box 1, Bog 1, Basket 1
+Box "hello", Bag "hi"
+
+Box (Box 1) or Box [(Basket 1),(Basket 2)]
+
+
+We want to be able do certain operations and transformations on these containers.
+
+1. We want to be able to transform from one to the other. That is we want to that the things stored in one type of container and put them into another.
+Box 1 => Bag 1 => Basket 1 
+
+2. We want to be take out things from multiple Boxes, add them or lump them together into a larger Box
+Ex: 
+ [(Box 1), (Box 2), (Box 3)] => Box 6
+ [(Basket "hello"), (Basket " "), (Basket "world")] = Basket "hello world"
+
+3. We want to be able to take (lets say) the contents of Bags and Baskets and put them in Boxes
+So we want to:
+[(Bag 1),(Bag 2),(Bag 3)] [(Basket True),(Basket False),(Basket True)] 
+
+to [(Box 2),(Box 2),(Box 4)] -- adds one to contents of Bag if the Basket has True, 0 otherwise]
+

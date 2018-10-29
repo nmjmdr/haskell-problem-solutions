@@ -1,0 +1,5 @@
+altMap::(a->b)->(a->b)->[a]->[b]
+altMap _ _ [] = []
+altMap f1 f2 xs = [ (f a)  | (a,f) <- zip xs (cycle [f1, f2]) ]
+-- altMap f1 f2 xs = [ (f a)  | (a,f) <- zip xs (concat(repeat [f1, f2])) ]
+-- altMap f1 f2 xs = [ (snd p) (fst p)  | p <- zip [1,2,3,4] (concat(repeat [f1, f2])) ] 

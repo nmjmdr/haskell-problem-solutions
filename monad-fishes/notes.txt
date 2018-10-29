@@ -1,0 +1,9 @@
+class Monad m where
+ bind :: m a -> (a->m b) -> m b
+ return :: a -> ma
+
+instance Monad (Maybe String) where
+ bind (Just x) f = f x
+ bind (Nothing) f = Nothing
+ return x = Just x
+ 
