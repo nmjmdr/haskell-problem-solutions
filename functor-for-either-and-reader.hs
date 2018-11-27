@@ -6,7 +6,7 @@ instance Functor' (Either a) where
  fmap' g (Left a) = Left a
  fmap' g (Right b) = Right (g b)
  
- -- try for reader here
+
 instance Functor' ((->) e) where
  fmap' g k = g . k
 

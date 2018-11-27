@@ -21,7 +21,7 @@ returnW :: a -> W a
 returnW x = W x
 
 fmapW :: (a->b) -> W a -> W b
-fmapW g (W x) = W (g x)
+fmapW gn (W x) = W (gn x)
 
 f :: Int -> W Int
 f x = W (x+1)
