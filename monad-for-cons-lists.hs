@@ -37,12 +37,3 @@ instance Monad' List' where
     bind' (Cons x l) g = (g x)  `appendLists` (bind' l g)
     bind' _ _ = None 
 
-class Monoid' a where
-    mempty' :: a
-    mappend' :: a -> a -> a
-
-class Foldable' t where
-    foldMap' :: Monoid' m => (a -> m) -> t a -> m
-
-instance Foldable' List' where
-    foldMap' g lx = 
