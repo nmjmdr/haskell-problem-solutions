@@ -42,5 +42,17 @@ toList' :: (Foldable f) => f a -> [a]
 toList' lx = foldMap (\x -> [x]) lx
 
 
-maximum' :: (Foldable f, Monoid a, Ord a) => f a -> a
-maximum' = foldr (\acc x -> if acc < x then x else acc) mempty -- cant be mempty
+
+
+minimum' :: (Foldable f, Monoid a, Ord a) => f a -> a
+minimum' = foldr (\acc x -> if acc > x then x else acc) mempty 
+
+-- The above definition will not work for [1,2,3] : Int, as it would not know what to use for mempty
+-- but the following works:
+
+-- l = [Data.Semigroup.Min 50,Data.Semigroup.Min 2]
+-- *Main> (minimum' l) :: (Data.Semigroup.Min Int)
+-- Min {getMin = 2}
+
+-- a should be of type (Min a) and it should implement a Monoid
+
