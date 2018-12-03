@@ -28,7 +28,7 @@ for' s cnd incr ioFn = sequenceIO (map (ioFn) (generate s cnd incr))
 -- Refer: https://stackoverflow.com/questions/53002212/haskell-no-instance-of-num-defining-my-own-monadic-loop
 
 mapIO :: (a -> IO b) -> [a] -> IO [b]
-mapIO f [] = return []
+mapIO _ [] = return []
 mapIO f (x:xs) = do 
                    x' <- f x
                    xs' <- mapIO f xs
